@@ -11,7 +11,8 @@ from bokeh.io import output_notebook
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-database = 'C:/Users/chesoni/Documents/soccer_data/database.sqlite'
+# enter your own file path
+# database = '.../database.sqlite'
 conn = sqlite3.connect(database)
 
 query = 'SELECT name FROM sqlite_master WHERE type="table";'
@@ -24,6 +25,11 @@ a.head()
 
 # look at the player_attributes table
 query = "SELECT * FROM Player_Attributes;"
+a = pd.read_sql(query, conn)
+a.head()
+
+# look at the team_attributes
+query = "SELECT * FROM Team_Attributes;"
 a = pd.read_sql(query, conn)
 a.head()
 

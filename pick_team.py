@@ -9,7 +9,8 @@ from bokeh.io import output_notebook
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-database = '/Users/elainechesoni/Documents/Projects/database.sqlite'
+# enter your own file path
+# database = '.../database.sqlite'
 conn = sqlite3.connect(database)
 
 
