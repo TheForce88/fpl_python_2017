@@ -52,23 +52,23 @@ model = TSNE(n_components=2, random_state=0)
 tsne_comp = model.fit_transform
 
 # can't get this to work
-tmp = players[cols]
-tmp['comp1'], tmp['comp2'] = tsne_comp[:,0], tsne_comp[:,1] #error; TypeError: 'method' object is not subscriptable
-tmp = tmp[tmp.overall_rating >= 80]
+# tmp = players[cols]
+# tmp['comp1'], tmp['comp2'] = tsne_comp[:,0], tsne_comp[:,1] #error; TypeError: 'method' object is not subscriptable
+# tmp = tmp[tmp.overall_rating >= 80]
 
-_tools = 'box_zoom,pan,save,resize,reset,tab,wheel_zoom'
-fig = figure(tools=_tools, title='t-SNE of Players (FIFA stats)', responsive=True,
-             x_axis_label='Component 1', y_axis_label='Component 2')
+# _tools = 'box_zoom,pan,save,resize,reset,tab,wheel_zoom'
+# fig = figure(tools=_tools, title='t-SNE of Players (FIFA stats)', responsive=True,
+#             x_axis_label='Component 1', y_axis_label='Component 2')
 
-source = ColumnDataSource(tmp)
-hover = HoverTool
-hover.tooltips=[('Jogador','@player_name'),]
-fig.scatter(tmp['comp1'], tmp['comp2'], source=source, size=8, alpha=0.6, line_color='red'
-            fill_color='red')
+# source = ColumnDataSource(tmp)
+# hover = HoverTool
+# hover.tooltips=[('Jogador','@player_name'),]
+# fig.scatter(tmp['comp1'], tmp['comp2'], source=source, size=8, alpha=0.6, line_color='red'
+#            fill_color='red')
 
-fig.add_tools(hover)
+# fig.add_tools(hover)
 
-show(fig)
+# show(fig)
 
 ###
 
