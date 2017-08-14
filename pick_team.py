@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # enter your own file path
-# database = '.../database.sqlite'
+database = '.../database.sqlite'
 conn = sqlite3.connect(database)
 
 
@@ -56,6 +56,8 @@ df['name'] = df['name'].astype('str')
 df['name'] = df['name'].map(lambda x: x.lstrip('<span class="player-name">'))
 df['name'] = df['name'].astype('str')
 df['name'] = df['name'].map(lambda x: x.lstrip('</span>')) # this isn't removing the string
+
+df['result'] = df['result'].map(lambda x: x.lstrip('<span class="player-name">').rstrip('</span>'))
 
 # ideally, we could create all the tables then combine before cleaning--I just need to see that the cleaning method
 # works first

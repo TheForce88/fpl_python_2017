@@ -1,7 +1,9 @@
 import requests
 import json
-import cPickle
+import _pickle as cPickle
 import csv
+
+import requests, shutil, time
 
 FPL_URL = "https://fantasy.premierleague.com/drf/"
 USER_SUMMARY_SUBURL = "element-summary/"
@@ -44,13 +46,24 @@ with open('fpl_api.json', 'w') as f:
 
 # Choosing a fantasy football team
 all = {}
+outfile = open("players.data.pickle", "w")
 errorout = open("errors.log", "w")
 
-for in in range(600):
+for i in range(600):
     playerurl = "https://fantasy.premierleague.com/drf/bootstrap-static"
     r = requests.get(playerurl)
+
+    # skip non-existent players
     if r.status_code != 200: continue
 
-    all[i] = r.json()
+    try:
+        all[i] = r.json()
+    except ValueError:
+        continue
+# error: TypeError: 'builtin_function_or_method' object does not support item assignment
 
+
+outfile = open('data.p', 'wb')
 cPickle.dump(all, outfile)
+outfile.close()
+

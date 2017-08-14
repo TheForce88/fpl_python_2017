@@ -2,13 +2,14 @@ import pandas as pd
 import bs4
 from bs4 import BeautifulSoup
 import requests
-import html5lib
+import lxml
 
 player_dict = {}
 
-url = 'https://www.dreamteamfc.com/statistics/players/ALL/'
+# url = 'https://www.dreamteamfc.com/statistics/players/ALL/'
+url = 'http://www.futhead.com/17/players/?bin_platform=ps&league=13&club=all'
 r = requests.get(url)
-soup = BeautifulSoup(r.text, 'html5lib')
+soup = BeautifulSoup(r.text, 'lxml')
 
 name_list = []
 

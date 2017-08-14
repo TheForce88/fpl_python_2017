@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # enter your own file path
-# database = '.../database.sqlite'
+database = '.../database.sqlite'
 conn = sqlite3.connect(database)
 
 query = 'SELECT name FROM sqlite_master WHERE type="table";'
