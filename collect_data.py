@@ -7,6 +7,7 @@ import lxml
 player_dict = {}
 
 # url = 'https://www.dreamteamfc.com/statistics/players/ALL/'
+# url = 'https://www.premierleague.com/players'
 url = 'http://www.futhead.com/17/players/?bin_platform=ps&league=13&club=all'
 r = requests.get(url)
 soup = BeautifulSoup(r.text, 'lxml')
