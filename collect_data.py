@@ -24,3 +24,4 @@ for td in soup.findAll("td", {"class" : "tabName"}):
         player_dict[name] = [name, position, team, vfm, value, points]
 print('Found: %s' % len(name_list))
 print(name_list[-1])
+
